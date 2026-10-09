@@ -1,0 +1,80 @@
+{
+    "title": "LinkedIn Ultimate Scraper Input Schema",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "mode": {
+            "title": "Extraction Mode",
+            "type": "string",
+            "description": "Select what type of LinkedIn data to extract, or use AUTO_DETECT.",
+            "default": "AUTO_DETECT",
+            "editor": "select",
+            "enum": [
+                "AUTO_DETECT",
+                "PROFILES",
+                "COMPANIES",
+                "JOBS",
+                "POSTS",
+                "JOBS_SEARCH"
+            ],
+            "enumTitles": [
+                "Auto-Detect (From URLs)",
+                "People Profiles & Leads (Experience, Education, Emails)",
+                "Company Profiles (Industry, Employees, HQ, About)",
+                "Job Postings (Title, Company, Description, Apply Link)",
+                "Feed Posts (Text, Author, Reactions)",
+                "Jobs Search (Public Search by Keywords & Location)"
+            ]
+        },
+        "targetUrls": {
+            "title": "Target LinkedIn URLs",
+            "type": "array",
+            "description": "List of LinkedIn URLs (Profiles, Companies, Jobs, or Posts).",
+            "editor": "stringList",
+            "prefill": [
+                "https://www.linkedin.com/in/satyanadella/",
+                "https://www.linkedin.com/company/microsoft/"
+            ]
+        },
+        "searchKeywords": {
+            "title": "Job Search Keywords",
+            "type": "array",
+            "description": "Keywords or job titles to search for in JOBS_SEARCH mode.",
+            "editor": "stringList",
+            "prefill": [
+                "full stack engineer"
+            ]
+        },
+        "searchLocation": {
+            "title": "Job Search Location",
+            "type": "string",
+            "description": "Location filter for jobs search (e.g. 'United States', 'Worldwide', 'Remote', 'London').",
+            "default": "United States",
+            "editor": "textfield"
+        },
+        "maxItems": {
+            "title": "Maximum Items Per Run",
+            "type": "integer",
+            "description": "Maximum number of profiles, jobs, or search items to extract.",
+            "default": 30,
+            "minimum": 1,
+            "maximum": 5000
+        },
+        "liAtCookie": {
+            "title": "LinkedIn Session Cookie (li_at) - Optional",
+            "type": "string",
+            "description": "Optional 'li_at' cookie for deep authenticated profile access. Leave empty for No-Cookie public mode.",
+            "editor": "textfield"
+        },
+        "proxyConfiguration": {
+            "title": "Proxy Configuration",
+            "type": "object",
+            "description": "Apify Proxy (RESIDENTIAL strongly recommended for LinkedIn to prevent auth walls).",
+            "editor": "proxy",
+            "default": {
+                "useApifyProxy": true
+            }
+        }
+    },
+    "required": []
+}
