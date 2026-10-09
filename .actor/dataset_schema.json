@@ -1,0 +1,168 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string",
+                "title": "Entity Type"
+            },
+            "url": {
+                "type": "string",
+                "title": "LinkedIn URL"
+            },
+            "id": {
+                "type": "string",
+                "title": "Item Identifier / Slug"
+            },
+            "fullName": {
+                "type": "string",
+                "title": "Full Name"
+            },
+            "firstName": {
+                "type": "string",
+                "title": "First Name"
+            },
+            "lastName": {
+                "type": "string",
+                "title": "Last Name"
+            },
+            "headline": {
+                "type": "string",
+                "title": "Headline / Current Title"
+            },
+            "currentCompany": {
+                "type": "string",
+                "title": "Current Company"
+            },
+            "currentPosition": {
+                "type": "string",
+                "title": "Current Job Position"
+            },
+            "location": {
+                "type": "string",
+                "title": "Location (City, Country)"
+            },
+            "about": {
+                "type": "string",
+                "title": "About / Summary"
+            },
+            "experience": {
+                "type": "array",
+                "title": "Experience History"
+            },
+            "education": {
+                "type": "array",
+                "title": "Education History"
+            },
+            "skills": {
+                "type": "array",
+                "title": "Skills List"
+            },
+            "connectionsCount": {
+                "type": "string",
+                "title": "Connections / Followers"
+            },
+            "profilePictureUrl": {
+                "type": "string",
+                "title": "Profile Picture URL"
+            },
+            "bannerUrl": {
+                "type": "string",
+                "title": "Banner Image URL"
+            },
+            "email": {
+                "type": "string",
+                "title": "Contact Email"
+            },
+            "emails": {
+                "type": "array",
+                "title": "Extracted Emails"
+            },
+            "phone": {
+                "type": "string",
+                "title": "Contact Phone"
+            },
+            "phones": {
+                "type": "array",
+                "title": "Extracted Phones"
+            },
+            "socialLinks": {
+                "type": "array",
+                "title": "Social & Website Links"
+            },
+            "companyName": {
+                "type": "string",
+                "title": "Company Name"
+            },
+            "companyTagline": {
+                "type": "string",
+                "title": "Company Tagline"
+            },
+            "companyIndustry": {
+                "type": "string",
+                "title": "Company Industry"
+            },
+            "companySize": {
+                "type": "string",
+                "title": "Company Employee Size"
+            },
+            "companyWebsite": {
+                "type": "string",
+                "title": "Company Website URL"
+            },
+            "companyHq": {
+                "type": "string",
+                "title": "Company Headquarters"
+            },
+            "jobTitle": {
+                "type": "string",
+                "title": "Job Title"
+            },
+            "jobCompany": {
+                "type": "string",
+                "title": "Hiring Company"
+            },
+            "jobLocation": {
+                "type": "string",
+                "title": "Job Location"
+            },
+            "jobWorkplaceType": {
+                "type": "string",
+                "title": "Workplace (Remote/Hybrid/On-site)"
+            },
+            "jobEmploymentType": {
+                "type": "string",
+                "title": "Employment Type (Full-time)"
+            },
+            "jobSeniority": {
+                "type": "string",
+                "title": "Seniority Level"
+            },
+            "jobDescription": {
+                "type": "string",
+                "title": "Job Description"
+            },
+            "jobApplyUrl": {
+                "type": "string",
+                "title": "Job Apply URL"
+            },
+            "postText": {
+                "type": "string",
+                "title": "Post Text"
+            },
+            "postLikesCount": {
+                "type": "integer",
+                "title": "Post Likes / Reactions"
+            },
+            "postCommentsCount": {
+                "type": "integer",
+                "title": "Post Comments Count"
+            },
+            "scrapedAt": {
+                "type": "string",
+                "title": "Scraped At Timestamp"
+            }
+        }
+    }
+}
