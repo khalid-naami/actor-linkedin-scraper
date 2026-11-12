@@ -1,7 +1,9 @@
 {
     "actorSpecification": 1,
     "fields": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
+        "additionalProperties": true,
         "properties": {
             "type": {
                 "type": "string",
@@ -49,15 +51,26 @@
             },
             "experience": {
                 "type": "array",
-                "title": "Experience History"
+                "title": "Experience History",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
             },
             "education": {
                 "type": "array",
-                "title": "Education History"
+                "title": "Education History",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
             },
             "skills": {
                 "type": "array",
-                "title": "Skills List"
+                "title": "Skills List",
+                "items": {
+                    "type": "string"
+                }
             },
             "connectionsCount": {
                 "type": "string",
@@ -77,7 +90,10 @@
             },
             "emails": {
                 "type": "array",
-                "title": "Extracted Emails"
+                "title": "Extracted Emails",
+                "items": {
+                    "type": "string"
+                }
             },
             "phone": {
                 "type": "string",
@@ -85,11 +101,26 @@
             },
             "phones": {
                 "type": "array",
-                "title": "Extracted Phones"
+                "title": "Extracted Phones",
+                "items": {
+                    "type": "string"
+                }
             },
             "socialLinks": {
                 "type": "array",
-                "title": "Social & Website Links"
+                "title": "Social & Website Links",
+                "items": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "platform": {
+                            "type": "string"
+                        },
+                        "url": {
+                            "type": "string"
+                        }
+                    }
+                }
             },
             "companyName": {
                 "type": "string",
@@ -147,9 +178,29 @@
                 "type": "string",
                 "title": "Job Apply URL"
             },
+            "datePosted": {
+                "type": "string",
+                "title": "Job Posted Date"
+            },
+            "searchKeyword": {
+                "type": "string",
+                "title": "Job Search Keyword"
+            },
+            "searchLocation": {
+                "type": "string",
+                "title": "Job Search Location"
+            },
             "postText": {
                 "type": "string",
                 "title": "Post Text"
+            },
+            "postAuthor": {
+                "type": "string",
+                "title": "Post Author"
+            },
+            "postAuthorUrl": {
+                "type": "string",
+                "title": "Post Author URL"
             },
             "postLikesCount": {
                 "type": "integer",
@@ -159,9 +210,72 @@
                 "type": "integer",
                 "title": "Post Comments Count"
             },
+            "datePublished": {
+                "type": "string",
+                "title": "Post Publication Date"
+            },
             "scrapedAt": {
                 "type": "string",
                 "title": "Scraped At Timestamp"
+            }
+        }
+    },
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": [
+                    "type",
+                    "fullName",
+                    "headline",
+                    "companyName",
+                    "jobTitle",
+                    "jobCompany",
+                    "jobLocation",
+                    "location",
+                    "url"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "type": {
+                        "label": "Type",
+                        "format": "text"
+                    },
+                    "fullName": {
+                        "label": "Name",
+                        "format": "text"
+                    },
+                    "headline": {
+                        "label": "Headline",
+                        "format": "text"
+                    },
+                    "companyName": {
+                        "label": "Company",
+                        "format": "text"
+                    },
+                    "jobTitle": {
+                        "label": "Job Title",
+                        "format": "text"
+                    },
+                    "jobCompany": {
+                        "label": "Hiring Co.",
+                        "format": "text"
+                    },
+                    "jobLocation": {
+                        "label": "Job Location",
+                        "format": "text"
+                    },
+                    "location": {
+                        "label": "Location",
+                        "format": "text"
+                    },
+                    "url": {
+                        "label": "URL",
+                        "format": "link"
+                    }
+                }
             }
         }
     }
