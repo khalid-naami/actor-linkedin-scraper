@@ -218,7 +218,8 @@
                 "type": "string",
                 "title": "Scraped At Timestamp"
             }
-        }
+        },
+        "required": []
     },
     "views": {
         "overview": {
