@@ -11,6 +11,11 @@ import {
     sanitizeRecord,
 } from './extractors.js';
 
+function isProxyTransportError(errOrStatus) {
+    const msg = String(errOrStatus?.message || errOrStatus || '');
+    return errOrStatus === 597 || errOrStatus === 407 || /597|UPSTREAM407|407|Proxy responded with|tunneling socket/i.test(msg);
+}
+
 await Actor.init();
 
 try {
@@ -100,6 +105,7 @@ try {
 
         try {
             const crawler = new PlaywrightCrawler({
+            maxConcurrency: 2,
                 requestQueue,
                 proxyConfiguration: proxyConfig,
                 maxRequestsPerCrawl: 1,
@@ -108,8 +114,10 @@ try {
                 requestHandlerTimeoutSecs: 35,
                 preNavigationHooks: [
                     async ({ page }, gotoOptions) => {
+                        await page.route('**/*.{mp4,webm,avi,woff,woff2}', (route) => route.abort().catch(() => {}));
                         gotoOptions.waitUntil = 'domcontentloaded';
                         if (liAtCookie && liAtCookie.trim()) {
+                            // Normalize cookie sameSite (no_restriction -> None)
                             await page.context().addCookies([{
                                 name: 'li_at',
                                 value: liAtCookie.trim(),
