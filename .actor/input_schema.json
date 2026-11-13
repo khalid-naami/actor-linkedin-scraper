@@ -64,7 +64,8 @@
             "title": "LinkedIn Session Cookie (li_at) - Optional",
             "type": "string",
             "description": "Optional 'li_at' cookie for deep authenticated profile access. Leave empty for No-Cookie public mode.",
-            "editor": "textfield"
+            "editor": "textfield",
+            "isSecret": true
         },
         "proxyConfiguration": {
             "title": "Proxy Configuration",
